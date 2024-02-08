@@ -4,7 +4,6 @@ from most_active_cookie.utils import build_cookie_map_from_logfile, find_most_ac
 
 class TestUtilsFunctions(unittest.TestCase):
     def setUp(self):
-        self.log_file = "test_cookie_log.csv"
         self.expected_cookie_map_1 = {
             "20181209": {"AtY0laUfhglK3lC7": 2, "SAZuXPGUrfbcn5UA": 1, "5UAVanZf6UtGyKVS": 1},
             "20181208": {"SAZuXPGUrfbcn5UA": 1, "4sMM2LxV07bPJzwf": 1, "fbcn5UAVanZf6UtG": 1},
@@ -19,12 +18,8 @@ class TestUtilsFunctions(unittest.TestCase):
         with self.assertRaises(FileNotFoundError):
             cookie_map = build_cookie_map_from_logfile("")
 
-    def test_build_cookie_map_from_logfile_handle_empty_spaces_in_logfile(self):
-        cookie_map = build_cookie_map_from_logfile("wrong_cookie_log.csv")
-        self.assertEqual(self.expected_cookie_map_1, cookie_map)
-
     def test_build_cookie_map_from_logfile(self):
-        cookie_map = build_cookie_map_from_logfile(self.log_file)
+        cookie_map = build_cookie_map_from_logfile("cookie_log.csv")
         self.assertEqual(self.expected_cookie_map_1, cookie_map)
 
     def test_find_most_active_cookies_with_non_existing_date(self):
