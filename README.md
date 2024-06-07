@@ -1,4 +1,4 @@
-# Harshith Gutha Quantcast Coding Assignment Submission
+# Quantcast Coding Assignment Submission
 
 ## Instructions
 To run the command line program, `git clone https://github.com/hgutha/QuantcastOA.git` this repository and <br> run `python -m most_active_cookie.main <file_name> -d <YYYY-MM-DD>`. 
